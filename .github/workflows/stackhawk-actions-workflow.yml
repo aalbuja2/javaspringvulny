@@ -14,9 +14,15 @@ jobs:
   stackhawk-hawkscan:
     # This is the OS we chose to run the project on
     runs-on: ubuntu-latest
+    
     # These are the sequential steps for running the action
     steps:
       # First, the action checks out the repo to get the latest version
+      - name: Set version Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
       - name: Check out Repo!
         uses: actions/checkout@v2
       # Next, the action builds and runs the Javaspringvulny application in a Docker container
